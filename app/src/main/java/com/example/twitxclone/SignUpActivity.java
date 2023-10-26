@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -11,7 +12,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText usernameText;
     EditText passwordText;
     EditText dobText;
-
+    Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,17 @@ public class SignUpActivity extends AppCompatActivity {
         usernameText = findViewById(R.id.user_field);
         passwordText = findViewById(R.id.pass_field);
         dobText = findViewById(R.id.dob_field);
+        signUp = findViewById(R.id.signup_button);
+        signUp.setOnClickListener(listener);
     }
+
+
+    View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+        }
+    };
 
 
 
@@ -29,7 +40,6 @@ public class SignUpActivity extends AppCompatActivity {
         String usern = usernameText.getText().toString();
         String password = passwordText.getText().toString();
         String dob = dobText.getText().toString();
-
 
     }
 
