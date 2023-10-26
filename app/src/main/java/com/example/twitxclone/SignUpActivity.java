@@ -1,11 +1,14 @@
 package com.example.twitxclone;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -13,6 +16,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText passwordText;
     EditText dobText;
     Button signUp;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,18 @@ public class SignUpActivity extends AppCompatActivity {
         dobText = findViewById(R.id.dob_field);
         signUp = findViewById(R.id.signup_button);
         signUp.setOnClickListener(listener);
+        fAuth = FirebaseAuth.getInstance();
+    }
+
+    public void onSignup(View view){
+        String usern = usernameText.getText().toString();
+        String password = passwordText.getText().toString();
+        String dob = dobText.getText().toString();
+
+        fAuth.createUserWithEmailAndPassword(usern, password).
+                addOnCompleteListener(new OnCompleteListener<AuthResult>(){
+
+                })
     }
 
 
